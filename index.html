@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheikh Mohammed Saif - My Aesthetic Portfolio</title>
+    <!-- Google Fonts: Playfair Display for headings, Raleway for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0; /* Soft white text for dark background */
+            
+            /* New Background Image for the entire body with a deeper overlay */
+            background: linear-gradient(rgba(8, 8, 15, 0.98), rgba(8, 8, 15, 0.98)), /* Darker, consistent overlay */
+                        url('https://plus.unsplash.com/premium_photo-1674811564431-4be5bd37fb6a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdlYnNpdGUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww') no-repeat center center/cover fixed;
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center; /* Center align text within container */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ffffff; /* Headings color pure white for better contrast */
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #66d9ef; /* Vibrant light blue link color */
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for links */
+        }
+
+        a:hover {
+            color: #a6e22e; /* Lighter green on hover */
+            transform: translateY(-2px); /* Subtle lift effect */
+        }
+
+        /* Header */
+        .header {
+            background-color: rgba(15, 15, 30, 0.98); /* Almost opaque dark blue header */
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.8); /* More prominent shadow */
+            backdrop-filter: blur(5px); /* Subtle blur for frosted glass effect */
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            font-weight: 600;
+            color: #fff; /* Nav links white */
+            text-transform: uppercase;
+            font-size: 0.9em;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #66d9ef;
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none; /* Hidden by default on desktop */
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001; /* Ensure it's above other elements */
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Your uploaded image as background for the hero section with a dark overlay */
+            background: linear-gradient(rgba(10,10,20,0.98), rgba(10,10,20,0.98)), /* Darker overlay for better text contrast */
+                        url('when-ict-is.jpg') no-repeat center center/cover;
+            padding: 150px 0; /* Increase padding for more visual space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh; /* Increased minimum height for hero section (90% of viewport height) */
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.98); /* Stronger inner shadow */
+        }
+
+        .hero-content {
+            background-color: transparent; /* Make content background transparent */
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            max-width: 800px; /* Adjust max-width for the text content */
+            animation: fadeIn 1.5s ease-out; /* Fade in animation for hero content */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 220px; /* Larger profile picture */
+            height: 220px;
+            object-fit: cover;
+            border: 8px solid #66d9ef; /* Thicker accent border */
+            box-shadow: 0 15px 45px rgba(0,0,0,0.8); /* More prominent shadow for profile pic */
+            margin-bottom: 30px; /* Increased margin */
+            transition: transform 0.4s ease, filter 0.4s ease, border-color 0.4s ease; /* Smooth hover effect */
+            filter: grayscale(70%); /* Subtle grayscale effect */
+            animation: pulseGlow 2s infinite alternate; /* Gentle pulse glow */
+        }
+
+        @keyframes pulseGlow {
+            from { box-shadow: 0 15px 45px rgba(0,0,0,0.8), 0 0 0px rgba(102, 217, 239, 0.4); }
+            to { box-shadow: 0 15px 45px rgba(0,0,0,0.8), 0 0 20px rgba(102, 217, 239, 0.8); }
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.08); /* Slight zoom on hover */
+            filter: grayscale(0%); /* Remove grayscale on hover */
+            border-color: #a6e22e; /* Change border color on hover */
+        }
+
+        .hero-heading {
+            font-size: 4.5em; /* Larger heading */
+            margin-bottom: 25px;
+            color: #fff;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.95); /* Text shadow for better readability */
+            letter-spacing: 3px; /* Increased letter spacing */
+            line-height: 1.2;
+        }
+
+        .hero-text {
+            font-size: 1.6em; /* Larger text */
+            color: #c0c0c0; /* Slightly lighter text */
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8; /* Increased line height for readability */
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #66d9ef; /* Vibrant light blue button */
+            color: #1a1a1a; /* Dark text on bright button */
+            padding: 20px 45px; /* Larger padding for button */
+            border-radius: 50px; /* Pill shape for button */
+            text-transform: uppercase;
+            font-weight: 700; /* Bolder font */
+            letter-spacing: 2px; /* Increased letter spacing */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Button shadow */
+            border: 3px solid transparent; /* Initial transparent border */
+        }
+
+        .btn:hover {
+            background-color: #a6e22e; /* Lighter green on hover */
+            color: #1a1a1a;
+            transform: translateY(-7px); /* Lift effect on hover */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6); /* Enhanced shadow on hover */
+            border-color: #fff; /* White border on hover */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08); /* Subtle border for contrast */
+            background-color: rgba(20, 20, 35, 0.9); /* Slightly transparent dark blue-grey background for content sections */
+            margin: 60px 40px; /* Increased margin from body edges and between sections */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); /* More prominent shadow for floating effect */
+            text-align: center; /* Center align text in sections as well */
+            border-radius: 25px; /* More rounded corners for sections */
+            overflow: hidden; /* Ensures content stays within rounded corners */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease; /* Smooth transitions */
+            backdrop-filter: blur(3px); /* Subtle blur for sections */
+        }
+
+        section:hover {
+            transform: translateY(-8px); /* Slight lift on hover */
+            box-shadow: 0 25px 60px rgba(0,0,0,0.9); /* Enhanced shadow on hover */
+            background-color: rgba(25, 25, 45, 0.95); /* Slightly darker on hover */
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 60px; /* Keep margin at the bottom of the last section */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 4em; /* Larger section titles */
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            color: #ffffff; /* Section titles white */
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8); /* Subtle text shadow */
+            letter-spacing: 1.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 140px; /* Wider underline */
+            height: 5px; /* Thicker underline */
+            background-color: #66d9ef; /* Vibrant light blue underline */
+            border-radius: 3px; /* Rounded underline */
+        }
+
+        /* About Section */
+        .about-section p {
+            font-size: 1.2em; /* Slightly larger text */
+            max-width: 800px;
+            margin: 0 auto 20px;
+            color: #d0d0d0; /* About section text color */
+            line-height: 1.7;
+        }
+
+        /* Skills Section */
+        .skills-section .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px; /* Spacing between skill tags */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skills-section .skill-tag {
+            background-color: rgba(102, 217, 239, 0.15); /* Light blue transparent background */
+            color: #66d9ef; /* Vibrant light blue text */
+            padding: 12px 25px;
+            border-radius: 30px; /* Pill shape */
+            font-weight: 600;
+            font-size: 1.05em;
+            border: 1px solid #66d9ef; /* Border matching text color */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+        }
+
+        .skills-section .skill-tag:hover {
+            background-color: #66d9ef; /* Solid light blue on hover */
+            color: #1a1a1a; /* Dark text on hover */
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px; /* Increased gap */
+            text-align: left; /* Align text left within portfolio items */
+        }
+
+        .portfolio-item {
+            background-color: rgba(35, 35, 55, 0.95); /* Darker transparent background for portfolio items */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.7); /* Stronger shadow */
+            overflow: hidden;
+            padding: 35px; /* Increased padding */
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+            border: 2px solid rgba(102, 217, 239, 0.4); /* Subtle border matching accent color */
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px); /* More pronounced lift on hover */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); /* Enhanced shadow on hover */
+            background-color: rgba(45, 45, 65, 0.98); /* Slightly darker on hover */
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 280px; /* Taller images */
+            object-fit: cover;
+            display: block;
+            margin-bottom: 25px;
+            border-radius: 15px; /* Rounded image corners */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item img:hover {
+            transform: scale(1.03); /* Slight zoom on image hover */
+        }
+
+        .portfolio-item h3 {
+            margin: 15px 0;
+            font-size: 1.8em; /* Larger heading */
+            color: #fff; /* Portfolio item headings white */
+            letter-spacing: 1px;
+        }
+
+        .portfolio-item p {
+            font-size: 1.1em; /* Slightly larger text */
+            color: #d0d0d0; /* Portfolio item text color */
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #d0d0d0; /* Contact section text color */
+        }
+
+        .social-links {
+            margin-top: 40px; /* Increased margin */
+        }
+
+        .social-links a {
+            font-size: 3em; /* Larger icons */
+            margin: 0 25px; /* Increased spacing between icons */
+            color: #66d9ef; /* Vibrant light blue icons */
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+            display: inline-block;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6); /* Subtle text shadow */
+        }
+
+        .social-links a:hover {
+            color: #a6e22e; /* Lighter green on hover */
+            transform: translateY(-10px) scale(1.25); /* More pronounced lift and slight zoom */
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8); /* Enhanced text shadow on hover */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(15, 15, 30, 0.98); /* Darker, almost opaque footer */
+            color: #e0e0e0; /* Footer text color */
+            text-align: center;
+            padding: 40px 0; /* Increased padding */
+            font-size: 0.95em;
+            border-top: 1px solid rgba(255,255,255,0.1); /* Light top border to the footer */
+            box-shadow: inset 0 15px 30px rgba(0,0,0,0.7); /* Inner shadow for footer */
+            backdrop-filter: blur(5px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #66d9ef;
+            color: #1a1a1a;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: #a6e22e;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: row; /* Keep elements in a row */
+                justify-content: space-between; /* Space between title and toggle */
+                align-items: center;
+            }
+
+            .site-title {
+                margin-bottom: 0; /* Remove bottom margin */
+            }
+
+            .main-nav {
+                position: absolute; /* Position menu absolutely */
+                top: 100%; /* Below the header */
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 15, 30, 0.98); /* Same as header background */
+                box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                padding: 10px 0;
+                border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .main-nav.active {
+                display: flex; /* Show when active */
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav ul li {
+                margin: 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator */
+            }
+
+            .main-nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            .main-nav ul li a {
+                padding: 15px 20px;
+                display: block; /* Make links full width */
+                text-align: left; /* Align text left */
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger icon on mobile */
+            }
+
+            .hero {
+                padding: 100px 20px;
+                min-height: 60vh;
+            }
+
+            .hero-heading {
+                font-size: 2.8em;
+            }
+
+            .hero-text {
+                font-size: 1.1em;
+            }
+
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .portfolio-item {
+                text-align: left;
+            }
+            .social-links a {
+                font-size: 2.2em;
+                margin: 0 12px;
+            }
+            section {
+                margin: 30px 15px;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 15px;
+                min-height: 50vh;
+            }
+
+            .hero-heading {
+                font-size: 2.2em;
+                margin-bottom: 15px;
+            }
+
+            .hero-text {
+                font-size: 1em;
+                margin-bottom: 25px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            .section-title {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .social-links a {
+                font-size: 2em;
+                margin: 0 10px;
+            }
+            section {
+                margin: 20px 10px;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="site-title">Sheikh Mohammed Saif</h1>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/514267251_122202216914058025_8563956433255542136_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHkofy6g3Ytn0FCIBIJ74cUiUgj40b0XlmJSCPjRvReWfpmflGSrAMdYh7GFkPKtwic65F4naGsFfXPnQrTU6dM&_nc_ohc=pObm_JZqkkUQ7kNvwHrxqVx&_nc_oc=AdmypjDXwHbjC-tVlUCxwdr618qpIxtzQfDdXh-3nj6udm3sNLyTgjUVi6pBqZbZUag&_nc_zt=23&_nc_ht=scontent.fzyl2-1.fna&_nc_gid=ppNu5qwpdB2Sdz96UCepcw&oh=00_AfNGk3whgs4WQHvvJTzFHksq4Se15BuKb_DedG75a5lLQA&oe=686DF04F" alt="আপনার প্রোফাইল ছবি" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/220x220/333/fff?text=Profile+Image+Error';">
+                <h2 class="hero-heading">Saif cook kortese wait koro guys</h2>
+                <p class="hero-text">Welcome to my personal space where I share my passions and creative journey. Explore my work and connect with me!</p>
+                <a href="#portfolio" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>Hello! I'm **Sheikh Mohammed Saif**, a passionate creator exploring the realms of **[আপনার প্রধান আগ্রহ, যেমন: ডিজিটাল আর্ট, ফটোগ্রাফি, লেখালেখি]**. I believe in the power of visual storytelling and am constantly learning and experimenting with new techniques.</p>
+            <p>My journey in creativity started when **[সংক্ষিপ্ত গল্প, যেমন: I picked up my first camera at age 10, or started doodling in my notebooks]**. Since then, it's become an integral part of who I am. This portfolio is a collection of my favorite projects and a reflection of my evolving style.</p>
+            <p>When I'm not creating, you can find me **[আপনার শখ, যেমন: reading fantasy novels, hiking in nature, or exploring new cafes]**.</p>
+        </div>
+    </section>
+
+    <!-- New Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Web Development</span>
+                <span class="skill-tag">Photography</span>
+                <span class="skill-tag">Video Editing</span>
+                <span class="skill-tag">Content Writing</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Teamwork</span>
+                <span class="skill-tag">Creativity</span>
+                <span class="skill-tag">Communication</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <!-- Thumbnail for Facebook post - direct extraction is complex client-side, using a placeholder -->
+                    <img src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/472512678_122178017762058025_6728137693537170640_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeH17e_xrJqZ8B8j5NwU3bqjSiGz8MyzyQpKIbPwzLPJCn6M5K9L1cDNY1HExm0CW_RyWl0boUxrkl2Cug6Gbm3a&_nc_ohc=5tNKzFL6o9sQ7kNvwGBU9Sm&_nc_oc=AdncPXfBg-krCCML7HftSR-d4EHdZX9WGj5i-nqlXeYdKl1NIQp70t853urv9aqkquI&_nc_zt=23&_nc_ht=scontent.fzyl2-1.fna&_nc_gid=CYoDW0_rRcfXqXyhDC1jaA&oh=00_AfNLN0KfQ9D7hRVPduFuJhnPkQOets0PJRnSEFT6BHgu-w&oe=686E0FD1" alt="Project 1 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x400/333/fff?text=Image+Load+Error';" />
+                    <h3>Project Title One</h3>
+                    <p>A brief description of this project. It highlights the creative process and the tools used. <a href="https://www.facebook.com/share/p/1C2Nqsty8w/" target="_blank">View Details</a></p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/514267251_122202216914058025_8563956433255542136_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHkofy6g3Ytn0FCIBIJ74cUiUgj40b0XlmJSCPjRvReWfpmflGSrAMdYh7GFkPKtwic65F4naGsFfXPnQrTU6dM&_nc_ohc=pObm_JZqkkUQ7kNvwHrxqVx&_nc_oc=AdmypjDXwHbjC-tVlUCxwdr618qpIxtzQfDdXh-3nj6udm3sNLyTgjUVi6pBqZbZUag&_nc_zt=23&_nc_ht=scontent.fzyl2-1.fna&_nc_gid=ppNu5qwpdB2Sdz96UCepcw&oh=00_AfNGk3whgs4WQHvvJTzFHksq4Se15BuKb_DedG75a5lLQA&oe=686DF04F" alt="Project 2 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x400/333/fff?text=Image+Load+Error';" />
+                    <h3>Project Title Two</h3>
+                    <p>This project explores new techniques and artistic expressions. It was a challenging yet rewarding experience. <a href="https://www.youtube.com/watch?v=UraWGwzZIU0&t=2301s" target="_blank">View Details</a></p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/500741285_122198229674058025_3230082243694016287_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFXI1kAJ9fj1_pjBCyFGncSNze2Ma7Ki7k3N7YxrsqLuesSvXrudodt7k3U2iTZFO4ilOjPMOW9IE5NrepdnPeX&_nc_ohc=E5qxv75tWhwQ7kNvwGO5B97&_nc_oc=AdnMMhbLIRrWW3J7rHus0_G6tggCk9oMbU9mKgn8dzjhNJGxFQdUcpa-KoIE9oT3qUU&_nc_zt=23&_nc_ht=scontent.fzyl2-1.fna&_nc_gid=9KvV0oqucHsDqVcDHWl6eQ&oh=00_AfMPn86Wg5a7_Jeu1mIKrDo_p95afiLM9qwZ-qN9rNUi3A&oe=686DE3AD" alt="Project 3 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x400/333/fff?text=Image+Load+Error';" />
+                    <h3>Project Title Three</h3>
+                    <p>Showcasing my passion for [your specific interest], this piece was inspired by [inspiration]. <a href="https://www.youtube.com/watch?v=UraWGwzZIU0&t=2301s" target="_blank">View Details</a></p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://scontent.fzyl2-1.fna.fbcdn.net/v/t39.30808-6/485091226_122188462652058025_1999432675369249256_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeErPrOmGOLj7v6GxsLf0BP1QWmSt5IL0IBBaZK3kgvQgEZdGybW5q8VqRSvxfG-Ki-AVAkVelm6bsv8cQlIcsvZ&_nc_ohc=-udkxgakrosQ7kNvwErMi5T&_nc_oc=AdnXDvNk_yVeIMZvCj2cbtcBz4GvuCxSiRwH84watV0CSlcknWIaZ_rznPj3dKi1sqU&_nc_zt=23&_nc_ht=scontent.fzyl2-1.fna&_nc_gid=Ol0EeC3ekIcpwXGdSNKhKA&oh=00_AfN5O-FeFQWCpyMR2Yojar9xbYQEal943PYdin7U3fhobg&oe=686E1549" alt="Project 4 Thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/600x400/333/fff?text=Image+Load+Error';" />
+                    <h3>Project Title Four</h3>
+                    <p>An experimental work that pushed my boundaries and helped me grow as an artist. <a href="https://www.youtube.com/watch?v=UraWGwzZIU0&t=2301s" target="_blank">View Details</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>Feel free to reach out if you have any questions or just want to say hello!</p>
+            <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+            <div class="social-links">
+                <!-- Social Media Icons -->
+                <a href="https://buetpremiumsub.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://buetpremiumsub.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://buetpremiumsub.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://buetpremiumsub.com/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://buetpremiumsub.com/" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sheikh Mohammed Saif. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            // Mobile Menu Toggle Logic
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    // Change icon from bars to times (X) when menu is open
+                    const icon = menuToggle.querySelector('i');
+                    if (mainNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when a nav link is clicked (for smooth scrolling)
+                mainNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mainNav.classList.remove('active');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // Back to Top Button Logic
+            if (backToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) { // Show button after scrolling 300px
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                });
+
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Smooth scroll to top
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
